@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ジーマ式 | 運動習慣で未来への健康投資 - オンラインフィットネス</title>
+    <meta name="description" content="35歳からの健康投資。店舗なし・オンライン完結の「ジーマ式」フィットネス。予約システム不要、LINEで完結する新しい運動習慣をご提案します。">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #333;
+        }
+        .font-eng {
+            font-family: 'Oswald', sans-serif;
+        }
+        /* ロゴデザイン */
+        .logo-text {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+        }
+        /* グラデーションテキスト */
+        .text-gradient {
+            background: linear-gradient(to right, #1e3a8a, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* ナビゲーションのアクティブ状態 */
+        .nav-item.active {
+            color: #f97316;
+            border-bottom: 2px solid #f97316;
+        }
+        /* SPA風の表示切替 */
+        .section-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .section-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#1e3a8a',   /* 信頼感 */
+                            orange: '#f97316', /* 親しみ・活力 */
+                            light: '#f3f4f6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+    <header class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" onclick="switchTab('home')" class="logo-text text-2xl md:text-3xl text-brand-navy flex items-center gap-2">
+                <i class="fa-solid fa-dumbbell text-brand-orange"></i>
+                ジーマ式
+            </a>
+
+            <nav class="hidden md:flex space-x-8 font-bold text-gray-600">
+                <a href="#" onclick="switchTab('home')" class="nav-item hover:text-brand-orange transition" id="nav-home">HOME</a>
+                <a href="#" onclick="switchTab('about')" class="nav-item hover:text-brand-orange transition" id="nav-about">ABOUT</a>
+                <a href="#" onclick="switchTab('service')" class="nav-item hover:text-brand-orange transition" id="nav-service">SERVICE</a>
+                <a href="#" onclick="switchTab('contact')" class="nav-item hover:text-brand-orange transition" id="nav-contact">RESERVE</a>
+            </nav>
+
+            <button class="md:hidden text-2xl text-brand-navy focus:outline-none" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full">
+            <a href="#" onclick="switchTab('home'); toggleMobileMenu()" class="block py-3 px-4 text-gray-700 hover:bg-gray-50 border-b">HOME</a>
+            <a href="#" onclick="switchTab('about'); toggleMobileMenu()" class="block py-3 px-4 text-gray-700 hover:bg-gray-50 border-b">ABOUT</a>
+            <a href="#" onclick="switchTab('service'); toggleMobileMenu()" class="block py-3 px-4 text-gray-700 hover:bg-gray-50 border-b">SERVICE</a>
+            <a href="#" onclick="switchTab('contact'); toggleMobileMenu()" class="block py-3 px-4 text-brand-orange font-bold hover:bg-gray-50">RESERVE</a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-20">
+
+        <div id="home" class="section-content active">
+            <div class="relative h-[600px] flex items-center justify-center overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="フィットネス背景" class="w-full h-full object-cover opacity-90">
+                    <div class="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/40"></div>
+                </div>
+
+                <div class="container mx-auto px-4 relative z-10 text-white text-center md:text-left" data-aos="fade-up">
+                    <p class="text-brand-orange font-bold tracking-widest mb-4 font-eng">JIMA STYLE FITNESS</p>
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                        運動習慣で<br>
+                        未来への<span class="text-brand-orange">健康投資</span>。
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl leading-relaxed">
+                        店舗なし、オンライン完結。<br>
+                        35歳からの体づくりは「無理なく続く」が鍵。<br>
+                        あなたのライフスタイルに合わせた、一生モノの健康を。
+                    </p>
+                    <div class="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+                        <a href="https://lin.ee/EBeVJqO" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-line text-2xl"></i> LINEで体験予約
+                        </a>
+                        <button onclick="switchTab('about')" class="bg-white/10 hover:bg-white/20 text-white border border-white/50 font-bold py-4 px-8 rounded-full transition">
+                            ジーマ式とは？
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16" data-aos="fade-up">
+                        <h2 class="text-3xl font-bold text-brand-navy mb-4">選ばれる3つの理由</h2>
+                        <div class="w-16 h-1 bg-brand-orange mx-auto"></div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="p-8 bg-gray-50 rounded-xl text-center hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="100">
+                            <div class="w-16 h-16 bg-brand-navy text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
+                                <i class="fa-solid fa-house-laptop"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">完全オンライン完結</h3>
+                            <p class="text-gray-600">店舗に通う時間は不要。自宅のスペースで、プロの指導を受けられます。忙しい30代・40代に最適です。</p>
+                        </div>
+                        <div class="p-8 bg-gray-50 rounded-xl text-center hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="200">
+                            <div class="w-16 h-16 bg-brand-orange text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
+                                <i class="fa-solid fa-user-check"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">親しみやすい指導</h3>
+                            <p class="text-gray-600">「怖いトレーナー」ではありません。あなたの悩みに寄り添い、スタイリッシュかつ楽しく続けられるメニューを提案します。</p>
+                        </div>
+                        <div class="p-8 bg-gray-50 rounded-xl text-center hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="300">
+                            <div class="w-16 h-16 bg-brand-navy text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
+                                <i class="fa-solid fa-calendar-check"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">LINEで簡単予約</h3>
+                            <p class="text-gray-600">面倒な会員登録やログインIDは不要。いつも使っているLINEで、友達と連絡を取るように予約・相談が可能です。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="about" class="section-content">
+            <section class="py-20 bg-brand-light">
+                <div class="container mx-auto px-4">
+                    <div class="flex flex-col md:flex-row items-center gap-12">
+                        <div class="md:w-1/2" data-aos="fade-right">
+                            <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="トレーナーイメージ" class="rounded-2xl shadow-2xl w-full">
+                        </div>
+                        <div class="md:w-1/2" data-aos="fade-left">
+                            <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">
+                                健康は、<br>
+                                人生最大の<span class="text-brand-orange">投資</span>です。
+                            </h2>
+                            <p class="text-gray-600 leading-loose mb-6">
+                                「若い頃は無理がきいたけれど、最近疲れが取れない...」<br>
+                                35歳を過ぎると、誰もがそんな変化を感じ始めます。<br><br>
+                                ジーマ式フィットネスが目指すのは、ボディビルダーのような筋肉ではありません。
+                                10年後、20年後も美味しく食事ができ、自分の足で旅行に行ける。<br>
+                                そんな「動ける体」という資産を作ることです。<br><br>
+                                店舗はありません。だからこそ、あなたの生活空間そのものをフィットネススタジオに変えます。
+                                親しみやすく、でも効果はしっかりと。一緒に未来への投資を始めましょう。
+                            </p>
+                            <div class="flex gap-4 mt-8">
+                                <a href="https://x.com/muscle1422" target="_blank" class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center hover:opacity-80 transition">
+                                    <i class="fa-brands fa-x-twitter text-xl"></i>
+                                </a>
+                                <a href="https://www.youtube.com/channel/UCSeDfawgGp21oLzXtaa67kg" target="_blank" class="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center hover:opacity-80 transition">
+                                    <i class="fa-brands fa-youtube text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="service" class="section-content">
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-4 max-w-4xl">
+                    <div class="text-center mb-16" data-aos="fade-up">
+                        <h2 class="text-3xl font-bold text-brand-navy mb-4">サービスの流れ</h2>
+                        <p class="text-gray-600">複雑な手続きは一切ありません。</p>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div class="flex flex-col md:flex-row gap-6 p-6 border border-gray-200 rounded-xl items-center" data-aos="fade-up">
+                            <div class="text-5xl font-bold text-gray-200 font-eng">01</div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-brand-navy mb-2">公式LINEに登録</h3>
+                                <p class="text-gray-600">まずはLINEで「友達追加」をお願いします。自動メッセージでご案内が届きます。</p>
+                            </div>
+                            <a href="https://lin.ee/EBeVJqO" target="_blank" class="text-brand-orange font-bold hover:underline">LINE登録へ &rarr;</a>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row gap-6 p-6 border border-gray-200 rounded-xl items-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="text-5xl font-bold text-gray-200 font-eng">02</div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-brand-navy mb-2">日程のご相談</h3>
+                                <p class="text-gray-600">LINEのトークにて、ご希望の日時をお送りください。「平日の夜希望」「土曜日の午前中」など、ざっくりで構いません。</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row gap-6 p-6 border border-gray-200 rounded-xl items-center" data-aos="fade-up" data-aos-delay="200">
+                            <div class="text-5xl font-bold text-gray-200 font-eng">03</div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-brand-navy mb-2">オンラインセッション開始</h3>
+                                <p class="text-gray-600">予約時間になりましたら、お送りしたZoom等のリンクから入室してください。タオルとお水のご準備を。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-16 bg-brand-navy text-white p-8 rounded-2xl text-center" data-aos="zoom-in">
+                        <h3 class="text-2xl font-bold mb-4">まずは体験から</h3>
+                        <p class="mb-6 opacity-90">どのようなトレーニングをするのか、雰囲気を感じてください。</p>
+                        <p class="text-3xl font-bold text-brand-orange mb-2">体験レッスン受付中</p>
+                        <p class="text-sm opacity-75">※詳細はLINEにてお問い合わせください</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="contact" class="section-content">
+            <section class="py-20 bg-gray-50">
+                <div class="container mx-auto px-4 max-w-3xl text-center">
+                    <div data-aos="fade-up">
+                        <i class="fa-brands fa-line text-6xl text-green-500 mb-6"></i>
+                        <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">ご予約・お問い合わせ</h2>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                            ジーマ式フィットネスでは、スムーズなやり取りのため<br>
+                            すべてのご予約・お問い合わせを<strong class="text-brand-navy">公式LINE</strong>にて承っております。<br><br>
+                            「予約システムが難しくて分からない」という方も安心。<br>
+                            いつものLINEでメッセージを送る感覚でご連絡ください。
+                        </p>
+                        
+                        <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-green-500 mb-8">
+                            <p class="font-bold text-gray-500 mb-4">＼ 30秒で完了！まずは友だち追加 ／</p>
+                            <a href="https://lin.ee/EBeVJqO" target="_blank" class="block w-full bg-green-500 hover:bg-green-600 text-white font-bold text-xl py-5 rounded-xl transition shadow-md">
+                                公式LINEで予約する
+                            </a>
+                            <p class="mt-4 text-sm text-gray-400">※無理な勧誘は一切いたしませんのでご安心ください</p>
+                        </div>
+
+                        <div class="flex justify-center gap-6 mt-12">
+                            <a href="https://x.com/muscle1422" target="_blank" class="flex items-center gap-2 text-gray-600 hover:text-black transition">
+                                <i class="fa-brands fa-x-twitter text-xl"></i> X (Twitter)
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCSeDfawgGp21oLzXtaa67kg" target="_blank" class="flex items-center gap-2 text-gray-600 hover:text-red-600 transition">
+                                <i class="fa-brands fa-youtube text-xl"></i> YouTube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <footer class="bg-brand-navy text-white py-8 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center items-center gap-2 mb-4">
+                <i class="fa-solid fa-dumbbell text-brand-orange"></i>
+                <span class="font-bold text-lg">ジーマ式</span>
+            </div>
+            <p class="text-gray-400 text-sm">&copy; 2025 Jima Style Fitness. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS Initialize
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+
+        // SPA Navigation Logic
+        function switchTab(tabId) {
+            // Hide all sections
+            document.querySelectorAll('.section-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            // Show target section
+            document.getElementById(tabId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Update Nav Active State
+            document.querySelectorAll('.nav-item').forEach(el => {
+                el.classList.remove('active');
+            });
+            const navLink = document.getElementById('nav-' + tabId);
+            if(navLink) navLink.classList.add('active');
+        }
+
+        // Set initial active state
+        document.getElementById('nav-home').classList.add('active');
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
